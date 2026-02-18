@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Ramadan 2026 · Los Angeles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --lav: #c9b8f0;
+            --rose: #f4a7c3;
+            --mint: #a8e6cf;
+            --peach: #ffd3b6;
+            --gold: #f9d56e;
+            --pur: #7c5cbf;
+            --pur-d: #5a3fa0;
+            --pur-s: #a07de0;
+            --card: rgba(255, 255, 255, 0.84);
+            --text: #3d2c6e;
+            --mid: #6b4f9e;
+            --light: #9b7ec8;
+            --sh: 0 4px 20px rgba(124, 92, 191, 0.16);
+            --r: 16px;
+            --r-sm: 12px;
+            --sat: env(safe-area-inset-top, 0px);
+            --sab: env(safe-area-inset-bottom, 0px);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+            background: linear-gradient(160deg, #ede0ff 0%, #fce4ec 50%, #e0f7fa 100%);
+            min-height: 100dvh;
+            color: var(--text);
+            overflow-x: hidden;
+            padding-bottom: calc(64px + var(--sab));
+        }
+
+        /* ===== CARTOON LAYER ===== */
+        .cartoon-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden
+        }
+
+        /* Stars */
+        .star {
+            position: absolute;
+            font-size: 1rem;
+            animation: twinkle 2.5s ease-in-out infinite
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: .2;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .9;
+                transform: scale(1.3)
+            }
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            font-size: 2rem;
+            animation: drift linear infinite;
+            opacity: .55
+        }
+
+        @keyframes drift {
+            from {
+                transform: translateX(-80px)
+            }
+
+            to {
+                transform: translateX(calc(100vw + 80px))
+            }
+        }
+
+        /* Chicks */
+        .chick {
+            position: absolute;
+            bottom: 72px;
+            font-size: 1.6rem;
+            animation: hop 1.4s ease-in-out infinite;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .15));
+        }
+
+        @keyframes hop {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-5deg)
+            }
+
+            25% {
+                transform: translateY(-14px) rotate(5deg)
+            }
+
+            50% {
+                transform: translateY(-4px) rotate(-3deg)
+            }
+
+            75% {
+                transform: translateY(-10px) rotate(4deg)
+            }
+        }
+
+        .chick:active {
+            animation: spin .4s ease;
+            font-size: 2rem
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        /* Moon float */
+        .moon-float {
+            position: absolute;
+            top: 6px;
+            right: 12px;
+            font-size: 1.8rem;
+            animation: moonswing 4s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        @keyframes moonswing {
+
+            0%,
+            100% {
+                transform: rotate(-12deg) translateY(0)
+            }
+
+            50% {
+                transform: rotate(12deg) translateY(-6px)
+            }
+        }
+
+        /* Heart pop on chick click */
+        .heart-pop {
+            position: fixed;
+            font-size: 1.4rem;
+            pointer-events: none;
+            z-index: 999;
+            animation: heartrise .9s ease forwards;
+        }
+
+        @keyframes heartrise {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-60px) scale(1.6)
+            }
+        }
+
+        /* Particles */
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatup linear infinite
+        }
+
+        @keyframes floatup {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0
+            }
+
+            10% {
+                opacity: .3
+            }
+
+            90% {
+                opacity: .2
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 155px;
+            background: url('ramadan_bg.png') center 30%/cover;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 12px;
+            z-index: 2;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(220, 200, 255, .05) 0%, rgba(255, 255, 255, .62) 100%)
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center
+        }
+
+        .hero-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--pur-d);
+            text-shadow: 0 2px 12px rgba(255, 255, 255, .95);
+            line-height: 1;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 2px 12px #fff, 0 4px 24px rgba(124, 92, 191, .25)
+            }
+
+            to {
+                text-shadow: 0 2px 20px #fff, 0 4px 36px rgba(249, 213, 110, .45)
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            margin-top: 5px;
+            background: linear-gradient(135deg, var(--gold), var(--peach));
+            color: var(--pur-d);
+            font-weight: 800;
+            font-size: .66rem;
+            padding: 3px 11px;
+            border-radius: 50px;
+            letter-spacing: .07em;
+            box-shadow: 0 3px 10px rgba(249, 213, 110, .4);
+        }
+
+        /* ===== BOTTOM NAV ===== */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            background: rgba(255, 255, 255, .92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(201, 184, 240, .4);
+            display: flex;
+            padding-bottom: var(--sab);
+            box-shadow: 0 -3px 20px rgba(124, 92, 191, .1);
+        }
+
+        .nav-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 0 6px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            gap: 2px;
+            transition: all .25s;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 56px;
+        }
+
+        .nav-btn .ni {
+            font-size: 1.3rem;
+            transition: transform .25s
+        }
+
+        .nav-btn .nl {
+            font-size: .65rem;
+            font-weight: 700;
+            color: var(--light);
+            letter-spacing: .04em;
+            transition: color .25s
+        }
+
+        .nav-btn.active .nl {
+            color: var(--pur)
+        }
+
+        .nav-btn.active .ni {
+            transform: scale(1.15)
+        }
+
+        .nav-btn.active::after {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pur), var(--pur-s));
+            border-radius: 3px;
+            margin-top: 2px
+        }
+
+        /* ===== PAGES ===== */
+        .page {
+            display: none;
+            animation: fadein .35s ease
+        }
+
+        .page.active {
+            display: block
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+                transform: translateY(10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .container {
+            padding: 12px 13px 20px;
+            max-width: 430px;
+            margin: 0 auto
+        }
+
+        /* ===== TODAY CARDS ===== */
+        .today-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 14px
+        }
+
+        .today-card {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border-radius: var(--r-sm);
+            padding: 11px 7px;
+            text-align: center;
+            border: 1.5px solid rgba(201, 184, 240, .4);
+            box-shadow: var(--sh);
+        }
+
+        .today-card .tci {
+            font-size: 1.35rem;
+            margin-bottom: 3px
+        }
+
+        .today-card .tcl {
+            font-size: .57rem;
+            color: var(--light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em
+        }
+
+        .today-card .tcv {
+            font-size: .8rem;
+            font-weight: 800;
+            color: var(--pur);
+            margin-top: 2px;
+            line-height: 1.2
+        }
+
+        .today-card .tcs {
+            font-size: .58rem;
+            color: var(--mid);
+            margin-top: 1px
+        }
+
+        .weather-loading {
+            font-size: .7rem;
+            color: var(--light);
+            animation: pulse 1.2s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: .4
+            }
+
+            50% {
+                opacity: 1
+            }
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .sec-title {
+            text-align: center;
+            margin-bottom: 12px
+        }
+
+        .sec-title h2 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--pur), var(--rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .sec-title p {
+            color: var(--light);
+            font-size: .7rem;
+            margin-top: 3px
+        }
+
+        .divider {
+            width: 34px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--lav), var(--rose));
+            border-radius: 3px;
+            margin: 6px auto 0
+        }
+
+        /* ===== LEGEND ===== */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 10px
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: .67rem;
+            color: var(--mid);
+            font-weight: 600;
+            background: rgba(255, 255, 255, .6);
+            padding: 3px 9px;
+            border-radius: 20px
+        }
+
+        .ldot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0
+        }
+
+        /* ===== TABLE ===== */
+        .table-wrap {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border-radius: var(--r);
+            border: 1.5px solid rgba(201, 184, 240, .4);
+            box-shadow: var(--sh);
+            overflow: hidden
+        }
+
+        .timetable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .78rem
+        }
+
+        .timetable thead tr {
+            background: linear-gradient(135deg, var(--pur), var(--pur-s));
+            color: #fff
+        }
+
+        .timetable thead th {
+            padding: 10px 8px;
+            font-weight: 700;
+            font-size: .67rem;
+            letter-spacing: .04em;
+            text-align: center
+        }
+
+        .timetable thead th:first-child {
+            text-align: left;
+            padding-left: 12px
+        }
+
+        .timetable tbody tr {
+            border-bottom: 1px solid rgba(201, 184, 240, .18);
+            transition: background .15s
+        }
+
+        .timetable tbody tr:last-child {
+            border-bottom: none
+        }
+
+        .timetable tbody tr.weekend {
+            background: rgba(244, 167, 195, .06)
+        }
+
+        .timetable tbody tr.special {
+            background: linear-gradient(90deg, rgba(249, 213, 110, .1), rgba(244, 167, 195, .1))
+        }
+
+        .timetable tbody tr.today-row {
+            background: rgba(124, 92, 191, .1);
+            border-left: 3px solid var(--pur)
+        }
+
+        .timetable td {
+            padding: 9px 8px;
+            text-align: center;
+            color: var(--text)
+        }
+
+        .timetable td:first-child {
+            text-align: left;
+            padding-left: 12px
+        }
+
+        .day-info {
+            display: flex;
+            align-items: center;
+            gap: 7px
+        }
+
+        .day-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--lav), var(--rose));
+            color: var(--pur-d);
+            font-weight: 800;
+            font-size: .66rem;
+            flex-shrink: 0
+        }
+
+        .day-date {
+            font-size: .72rem;
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.2
+        }
+
+        .day-wd {
+            font-size: .6rem;
+            color: var(--light);
+            font-weight: 600
+        }
+
+        .time-pill {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: .74rem;
+            white-space: nowrap
+        }
+
+        .pf {
+            background: rgba(168, 230, 207, .3);
+            color: #2e7d5e
+        }
+
+        .pi {
+            background: rgba(249, 213, 110, .3);
+            color: #8a6200
+        }
+
+        .special-badge {
+            display: block;
+            font-size: .56rem;
+            background: linear-gradient(135deg, var(--gold), var(--peach));
+            color: var(--pur-d);
+            padding: 2px 5px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 2px
+        }
+
+        .disclaimer {
+            text-align: center;
+            margin-top: 11px;
+            font-size: .65rem;
+            color: var(--light);
+            padding: 0 6px
+        }
+
+        /* ===== QURAN ===== */
+        .quran-intro {
+            background: linear-gradient(135deg, rgba(201, 184, 240, .25), rgba(244, 167, 195, .15));
+            border-radius: var(--r-sm);
+            padding: 13px;
+            margin-bottom: 14px;
+            border: 1.5px solid rgba(201, 184, 240, .35);
+            text-align: center;
+        }
+
+        .quran-intro p {
+            font-size: .79rem;
+            color: var(--mid);
+            line-height: 1.6;
+            font-style: italic
+        }
+
+        .group-label {
+            font-size: .68rem;
+            font-weight: 800;
+            color: var(--pur-d);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin: 16px 0 8px;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, rgba(201, 184, 240, .4), rgba(244, 167, 195, .25));
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .surah-card {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border-radius: var(--r);
+            border: 1.5px solid rgba(201, 184, 240, .4);
+            box-shadow: var(--sh);
+            overflow: hidden;
+            margin-bottom: 11px;
+        }
+
+        .surah-header {
+            background: linear-gradient(135deg, var(--pur), var(--pur-s));
+            padding: 11px 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .s-num {
+            width: 29px;
+            height: 29px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #fff;
+            font-size: .76rem;
+            flex-shrink: 0
+        }
+
+        .s-name {
+            flex: 1
+        }
+
+        .s-name-ar {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 700;
+            line-height: 1.2
+        }
+
+        .s-name-en {
+            font-size: .67rem;
+            color: rgba(255, 255, 255, .8);
+            margin-top: 1px
+        }
+
+        .s-ayah {
+            font-size: .64rem;
+            color: rgba(255, 255, 255, .72);
+            text-align: right;
+            flex-shrink: 0
+        }
+
+        .surah-body {
+            padding: 13px
+        }
+
+        .verse-block {
+            margin-bottom: 13px
+        }
+
+        .verse-block:last-child {
+            margin-bottom: 0
+        }
+
+        .verse-arabic {
+            font-size: 1.08rem;
+            text-align: right;
+            direction: rtl;
+            color: var(--pur);
+            font-weight: 600;
+            line-height: 1.85;
+            margin-bottom: 7px;
+            padding: 9px 11px;
+            background: rgba(201, 184, 240, .12);
+            border-radius: 9px;
+            border-right: 3px solid var(--lav);
+        }
+
+        .verse-ref {
+            font-size: .63rem;
+            color: var(--light);
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 4px
+        }
+
+        .verse-ref::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--rose)
+        }
+
+        .verse-en {
+            font-size: .77rem;
+            color: var(--mid);
+            line-height: 1.65;
+            font-style: italic
+        }
+
+        .verse-zh {
+            font-size: .79rem;
+            color: var(--text);
+            line-height: 1.7;
+            font-family: 'Noto Sans SC', sans-serif;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(201, 184, 240, .4);
+            display: none;
+            /* default collapsed */
+        }
+
+        .verse-zh.show {
+            display: block
+        }
+
+        .verse-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 184, 240, .45), transparent);
+            margin: 11px 0
+        }
+
+        .zh-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 9px
+        }
+
+        .zh-btn {
+            font-size: .64rem;
+            font-weight: 700;
+            color: var(--pur);
+            background: rgba(201, 184, 240, .22);
+            border: 1.5px solid rgba(201, 184, 240, .5);
+            border-radius: 20px;
+            padding: 3px 10px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: all .2s;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        .zh-btn.active {
+            background: var(--pur);
+            color: #fff;
+            border-color: var(--pur)
+        }
+
+        .zh-btn:active {
+            transform: scale(.95)
+        }
+
+        .dua-card .surah-header {
+            background: linear-gradient(135deg, #e8a87c, #f4a7c3)
+        }
+
+        /* ===== SCROLL TOP ===== */
+        .scroll-top {
+            position: fixed;
+            right: 14px;
+            bottom: calc(70px + var(--sab));
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pur), var(--pur-s));
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .95rem;
+            box-shadow: 0 4px 14px rgba(124, 92, 191, .38);
+            opacity: 0;
+            transform: translateY(14px);
+            transition: all .3s;
+            z-index: 150;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .scroll-top:active {
+            transform: scale(.9)
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Cartoon overlay -->
+    <div class="cartoon-layer" id="cartoon-layer">
+        <div class="moon-float">🌙</div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-title">Ramadan 2026 ✨</div>
+            <div class="hero-badge">🌙 Feb 18 – Mar 19, 2026 · Los Angeles</div>
+        </div>
+    </header>
+
+    <!-- PAGE: TIMETABLE -->
+    <div class="page active" id="page-timetable">
+        <div class="container">
+
+            <!-- Today Cards -->
+            <div class="today-cards">
+                <div class="today-card">
+                    <div class="tci" id="today-w-icon">🌤</div>
+                    <div class="tcl">Weather</div>
+                    <div class="tcv" id="today-w-temp"><span class="weather-loading">…</span></div>
+                    <div class="tcs" id="today-w-city">Locating</div>
+                </div>
+                <div class="today-card">
+                    <div class="tci">🌅</div>
+                    <div class="tcl">Suhoor Ends</div>
+                    <div class="tcv" id="today-fajr">—</div>
+                    <div class="tcs">Fajr · Day <span id="today-day">—</span></div>
+                </div>
+                <div class="today-card">
+                    <div class="tci">🌇</div>
+                    <div class="tcl">Iftar Begins</div>
+                    <div class="tcv" id="today-iftar">—</div>
+                    <div class="tcs">Maghrib · Day <span id="today-day2">—</span></div>
+                </div>
+            </div>
+
+            <div class="sec-title">
+                <h2>🌙 Prayer Timetable</h2>
+                <p>Ramadan 2026 · Los Angeles, California</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="ldot" style="background:var(--mint)"></div>Fajr / Suhoor
+                </div>
+                <div class="legend-item">
+                    <div class="ldot" style="background:var(--gold)"></div>Iftar / Maghrib
+                </div>
+                <div class="legend-item">
+                    <div class="ldot" style="background:rgba(249,213,110,.8)"></div>✨ Special Night
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="timetable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>🌅 Fajr / Suhoor</th>
+                            <th>🌇 Iftar / Maghrib</th>
+                        </tr>
+                    </thead>
+                    <tbody id="timetable-body"></tbody>
+                </table>
+            </div>
+            <p class="disclaimer">⚠️ Times are approximate. Please verify with your local mosque.</p>
+        </div>
+    </div>
+
+    <!-- PAGE: QURAN -->
+    <div class="page" id="page-quran">
+        <div class="container">
+            <div class="sec-title">
+                <h2>📖 Quran Selections</h2>
+                <p>Suhoor &amp; Iftar verses · Tap 中文 to read Chinese</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="quran-intro">
+                <p>"Ramadan is the month in which the Quran was revealed as guidance for mankind, clear proofs of
+                    guidance, and the criterion." — 2:185</p>
+            </div>
+
+            <!-- SUHOOR GROUP -->
+            <div style="text-align:center"><span class="group-label">🌅 Suhoor · Before Dawn</span></div>
+
+            <!-- Al-Fatiha -->
+            <div class="surah-card" id="card-fatiha">
+                <div class="surah-header">
+                    <div class="s-num">1</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">سورة الفاتحة</div>
+                        <div class="s-name-en">Surah Al-Fatiha · The Opening</div>
+                    </div>
+                    <div class="s-ayah">1–7</div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۞ الْحَمْدُ لِلَّهِ رَبِّ
+                            الْعَالَمِينَ ۞ الرَّحْمَٰنِ الرَّحِيمِ ۞ مَالِكِ يَوْمِ الدِّينِ ۞ إِيَّاكَ نَعْبُدُ
+                            وَإِيَّاكَ نَسْتَعِينُ ۞ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۞ صِرَاطَ الَّذِينَ أَنْعَمْتَ
+                            عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div>
+                        <div class="verse-ref">1:1–7</div>
+                        <div class="verse-en">In the name of Allah, the Entirely Merciful, the Especially Merciful. All
+                            praise is due to Allah, Lord of the worlds — the Entirely Merciful, the Especially Merciful,
+                            Sovereign of the Day of Recompense. It is You we worship and You we ask for help. Guide us
+                            to the straight path — the path of those upon whom You have bestowed favor, not of those who
+                            have evoked anger or of those who are astray.</div>
+                        <div class="verse-zh">
+                            奉至仁至慈的真主之名。一切赞颂，全归真主，全世界的主，至仁至慈的主，报应日的主宰。我们只崇拜你，只求你佑助。求你引导我们上正路——你所赐恩的人们的路，不是受谴怒的人们的路，也不是迷误者的路。
+                        </div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-fatiha')">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ayat al-Kursi -->
+            <div class="surah-card" id="card-kursi">
+                <div class="surah-header">
+                    <div class="s-num">2</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">آية الكرسي</div>
+                        <div class="s-name-en">Ayat al-Kursi · The Throne Verse</div>
+                    </div>
+                    <div class="s-ayah">2:255</div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ
+                            سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي
+                            يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ
+                            وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ
+                            السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</div>
+                        <div class="verse-ref">2:255</div>
+                        <div class="verse-en">Allah — there is no deity except Him, the Ever-Living, the Sustainer of
+                            existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the
+                            heavens and whatever is on the earth. Who is it that can intercede with Him except by His
+                            permission? He knows what is before them and what will be after them, and they encompass not
+                            a thing of His knowledge except for what He wills. His Kursi extends over the heavens and
+                            the earth, and their preservation tires Him not. And He is the Most High, the Most Great.
+                        </div>
+                        <div class="verse-zh">
+                            真主——除他外，绝无应受崇拜的，他是永生的，是维护万物的。瞌睡不能侵犯他，睡眠不能克服他。天地万物，都是他的。不经他的许可，谁能在他那里说情呢？他知道他们面前的事，和他们身后的事；除他所意欲的外，他们绝不能窥测他的玄妙。他的知觉，包罗天地；维护天地，对他毫不费难。他是至尊的，是至大的。
+                        </div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-kursi')">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Al-Baqarah 285-286 -->
+            <div class="surah-card" id="card-bq-end">
+                <div class="surah-header">
+                    <div class="s-num">2</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">سورة البقرة</div>
+                        <div class="s-name-en">Al-Baqarah · Last Two Verses</div>
+                    </div>
+                    <div class="s-ayah">285–286</div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ
+                            ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ</div>
+                        <div class="verse-ref">2:285</div>
+                        <div class="verse-en">The Messenger has believed in what was revealed to him from his Lord, and
+                            so have the believers. All of them have believed in Allah and His angels and His books and
+                            His messengers.</div>
+                        <div class="verse-zh">使者确信主所降示他的经典，信士们也确信。他们每人都确信真主、天使、经典和使者。</div>
+                    </div>
+                    <div class="verse-divider"></div>
+                    <div class="verse-block">
+                        <div class="verse-arabic">لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ
+                            وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا</div>
+                        <div class="verse-ref">2:286</div>
+                        <div class="verse-en">Allah does not burden a soul beyond that it can bear. Our Lord, do not
+                            impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden
+                            like that which You laid upon those before us. And pardon us; and forgive us; and have mercy
+                            upon us. You are our protector.</div>
+                        <div class="verse-zh">
+                            真主不使任何人负担他所不能胜任的工作。主啊！如果我们遗忘或错误，请不要惩罚我们。主啊！请不要使我们负担我们所不能胜任的工作，请赦宥我们，请饶恕我们，请怜悯我们。你是我们的保佑者。
+                        </div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-bq-end')">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Al-Ikhlas -->
+            <div class="surah-card" id="card-ikhlas">
+                <div class="surah-header">
+                    <div class="s-num">112</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">سورة الإخلاص</div>
+                        <div class="s-name-en">Surah Al-Ikhlas · Sincerity</div>
+                    </div>
+                    <div class="s-ayah">1–4</div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">قُلْ هُوَ اللَّهُ أَحَدٌ ۞ اللَّهُ الصَّمَدُ ۞ لَمْ يَلِدْ وَلَمْ
+                            يُولَدْ ۞ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</div>
+                        <div class="verse-ref">112:1–4</div>
+                        <div class="verse-en">Say, "He is Allah, [who is] One. Allah, the Eternal Refuge. He neither
+                            begets nor is born. Nor is there to Him any equivalent."</div>
+                        <div class="verse-zh">你说：他是真主，是独一的主；真主是万物所仰赖的；他没有生产，也没有被生产；没有任何物可以做他的匹敌。</div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-ikhlas')">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Al-Falaq -->
+            <div class="surah-card" id="card-falaq">
+                <div class="surah-header">
+                    <div class="s-num">113</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">سورة الفلق</div>
+                        <div class="s-name-en">Surah Al-Falaq · The Daybreak</div>
+                    </div>
+                    <div class="s-ayah">1–5</div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۞ مِن شَرِّ مَا خَلَقَ ۞ وَمِن شَرِّ
+                            غَاسِقٍ إِذَا وَقَبَ ۞ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۞ وَمِن شَرِّ حَاسِدٍ إِذَا
+                            حَسَدَ</div>
+                        <div class="verse-ref">113:1–5</div>
+                        <div class="verse-en">Say, "I seek refuge in the Lord of daybreak, from the evil of that which
+                            He created, and from the evil of darkness when it settles, and from the evil of the blowers
+                            in knots, and from the evil of an envier when he envies."</div>
+                        <div class="verse-zh">你说：我求庇于黎明的主，免遭他所创造的祸害，免遭黑夜笼罩时的祸害，免遭在绳结上吹气者的祸害，免遭嫉妒者嫉妒时的祸害。</div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-falaq')">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- An-Nas -->
+            <div class="surah-card" id="card-nas">
+                <div class="surah-header">
+                    <div class="s-num">114</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">سورة الناس</div>
+                        <div class="s-name-en">Surah An-Nas · Mankind</div>
+                    </div>
+                    <div class="s-ayah">1–6</div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۞ مَلِكِ النَّاسِ ۞ إِلَٰهِ النَّاسِ ۞
+                            مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۞ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۞ مِنَ
+                            الْجِنَّةِ وَالنَّاسِ</div>
+                        <div class="verse-ref">114:1–6</div>
+                        <div class="verse-en">Say, "I seek refuge in the Lord of mankind, the Sovereign of mankind, the
+                            God of mankind, from the evil of the retreating whisperer — who whispers in the breasts of
+                            mankind — from among the jinn and mankind."</div>
+                        <div class="verse-zh">你说：我求庇于众人的主，众人的君王，众人的神明，免遭潜伏的恶魔的祸害——他在众人的胸中散布疑惑——无论他是精灵，还是世人。</div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-nas')">中文</button></div>
+                </div>
+            </div>
+
+            <!-- IFTAR GROUP -->
+            <div style="text-align:center"><span class="group-label">🌇 Iftar · Breaking Fast</span></div>
+
+            <!-- Iftar Dua -->
+            <div class="surah-card dua-card" id="card-dua-iftar">
+                <div class="surah-header">
+                    <div class="s-num">🌙</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">دعاء الإفطار</div>
+                        <div class="s-name-en">Iftar Du'a · Opening Supplication</div>
+                    </div>
+                    <div class="s-ayah"></div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">اللَّهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَيْكَ تَوَكَّلْتُ وَعَلَى
+                            رِزْقِكَ أَفْطَرْتُ</div>
+                        <div class="verse-ref">Iftar Supplication</div>
+                        <div class="verse-en">O Allah! I fasted for You, I believe in You, I put my trust in You, and I
+                            break my fast with Your sustenance.</div>
+                        <div class="verse-zh">主啊！我为你而封斋，我信仰你，我依靠你，我以你的恩赐开斋。</div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-dua-iftar')">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Al-Baqarah 185 -->
+            <div class="surah-card" id="card-bq185">
+                <div class="surah-header">
+                    <div class="s-num">2</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">سورة البقرة</div>
+                        <div class="s-name-en">Al-Baqarah · The Ramadan Verse</div>
+                    </div>
+                    <div class="s-ayah">2:185</div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ
+                            وَبَيِّنَاتٍ مِّنَ الْهُدَىٰ وَالْفُرْقَانِ ۚ فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ
+                        </div>
+                        <div class="verse-ref">2:185</div>
+                        <div class="verse-en">The month of Ramadan is that in which was revealed the Quran, a guidance
+                            for the people and clear proofs of guidance and criterion. So whoever sights the new moon of
+                            the month, let him fast it.</div>
+                        <div class="verse-zh">莱麦丹月中，降示了《古兰经》，作为人类的向导，和正道的明证，和真伪的标准。故你们中间谁亲历这个月份，谁就应当封斋。</div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-bq185')">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mu'awwidhatan note -->
+            <div class="quran-intro" style="margin-bottom:12px">
+                <p>📿 <strong>Al-Mu'awwidhatan</strong> — Chapters 112, 113 &amp; 114 are the "Three Protectors,"
+                    recited at both Suhoor and Iftar for protection and blessing.</p>
+            </div>
+
+            <!-- Laylat al-Qadr Dua -->
+            <div class="surah-card dua-card" id="card-dua-qadr">
+                <div class="surah-header">
+                    <div class="s-num">⭐</div>
+                    <div class="s-name">
+                        <div class="s-name-ar">دعاء ليلة القدر</div>
+                        <div class="s-name-en">Laylat al-Qadr Du'a</div>
+                    </div>
+                    <div class="s-ayah"></div>
+                </div>
+                <div class="surah-body">
+                    <div class="verse-block">
+                        <div class="verse-arabic">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+                        <div class="verse-ref">Laylat al-Qadr Supplication</div>
+                        <div class="verse-en">O Allah, You are Pardoning and You love to pardon, so pardon me.</div>
+                        <div class="verse-zh">主啊！你是宽恕者，你喜爱宽恕，请宽恕我吧。</div>
+                    </div>
+                    <div class="zh-toggle"><button class="zh-btn" onclick="toggleZh(this,'card-dua-qadr')">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="disclaimer">🌙 Ramadan Mubarak 2026 · Los Angeles</p>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+        <button class="nav-btn active" id="btn-timetable" onclick="switchPage('timetable',this)">
+            <span class="ni">🕌</span><span class="nl">Timetable</span>
+        </button>
+        <button class="nav-btn" id="btn-quran" onclick="switchPage('quran',this)">
+            <span class="ni">📖</span><span class="nl">Quran</span>
+        </button>
+    </nav>
+
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        aria-label="Back to top">↑</button>
+
+    <script>
+        // ===== PAGE SWITCH =====
+        function switchPage(id, btn) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('page-' + id).classList.add('active');
+            btn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ===== CHINESE TOGGLE (default collapsed) =====
+        function toggleZh(btn, cardId) {
+            const card = document.getElementById(cardId);
+            const zhs = card.querySelectorAll('.verse-zh');
+            const isActive = btn.classList.contains('active');
+            zhs.forEach(z => z.classList.toggle('show', !isActive));
+            btn.classList.toggle('active', !isActive);
+            btn.textContent = isActive ? '中文' : '收起';
+        }
+
+        // ===== SCROLL TOP =====
+        const scrollBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 200));
+
+        // ===== PARTICLES =====
+        const pc = document.getElementById('particles');
+        const cols = ['#c9b8f0', '#f4a7c3', '#a8e6cf', '#ffd3b6', '#f9d56e'];
+        for (let i = 0; i < 14; i++) {
+            const p = document.createElement('div'); p.className = 'particle';
+            const s = Math.random() * 9 + 3;
+            p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random() * 100}%;background:${cols[Math.floor(Math.random() * cols.length)]};animation-duration:${Math.random() * 15 + 10}s;animation-delay:${Math.random() * 8}s;opacity:${Math.random() * 0.28 + 0.06}`;
+            pc.appendChild(p);
+        }
+
+        // ===== CARTOON ELEMENTS =====
+        const cartoonLayer = document.getElementById('cartoon-layer');
+
+        // Stars
+        const starEmojis = ['⭐', '✨', '💫', '🌟'];
+        for (let i = 0; i < 12; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            s.textContent = starEmojis[Math.floor(Math.random() * starEmojis.length)];
+            s.style.cssText = `left:${Math.random() * 95}%;top:${Math.random() * 60 + 5}%;font-size:${Math.random() * 0.7 + 0.55}rem;animation-delay:${Math.random() * 3}s;animation-duration:${Math.random() * 2 + 2}s`;
+            cartoonLayer.appendChild(s);
+        }
+
+        // Clouds
+        const cloudEmojis = ['☁️', '⛅'];
+        [15, 45, 70, 88].forEach((pct, i) => {
+            const c = document.createElement('div');
+            c.className = 'cloud';
+            c.textContent = cloudEmojis[i % 2];
+            const dur = 28 + i * 9;
+            c.style.cssText = `top:${10 + i * 12}%;font-size:${1.6 + Math.random()}rem;animation-duration:${dur}s;animation-delay:${-i * 6}s`;
+            cartoonLayer.appendChild(c);
+        });
+
+        // Chicks 🐥 — bouncing at bottom, above nav
+        const chickEmojis = ['🐥', '🐤', '🐣'];
+        const chickPositions = [14, 38, 62, 82];
+        chickPositions.forEach((left, i) => {
+            const ch = document.createElement('div');
+            ch.className = 'chick';
+            ch.textContent = chickEmojis[i % chickEmojis.length];
+            const delay = i * 0.35;
+            const dur = 1.2 + i * 0.15;
+            ch.style.cssText = `left:${left}%;animation-delay:${delay}s;animation-duration:${dur}s`;
+            // Pop hearts on tap
+            ch.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const hearts = ['💕', '💗', '💖', '✨', '🌟'];
+                for (let k = 0; k < 3; k++) {
+                    const h = document.createElement('div');
+                    h.className = 'heart-pop';
+                    h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    h.style.cssText = `left:${e.clientX - 10 + k * 10}px;top:${e.clientY - 10}px;animation-delay:${k * 0.1}s`;
+                    document.body.appendChild(h);
+                    setTimeout(() => h.remove(), 1000);
+                }
+                // Random squeak sound effect via vibration
+                if (navigator.vibrate) navigator.vibrate([30, 20, 30]);
+            });
+            cartoonLayer.appendChild(ch);
+        });
+
+        // ===== TIMETABLE DATA =====
+        // [day, date, weekday, fajr, iftar, special, hiF, loF, wIcon, wDesc]
+        const data = [
+            [1, 'Feb 18', 'Wed', '5:14 AM', '5:40 PM', '', 68, 50, '⛅', 'Partly Cloudy'],
+            [2, 'Feb 19', 'Thu', '5:13 AM', '5:41 PM', '', 66, 49, '🌧', 'Rainy'],
+            [3, 'Feb 20', 'Fri', '5:12 AM', '5:42 PM', '', 64, 48, '🌧', 'Showers'],
+            [4, 'Feb 21', 'Sat', '5:11 AM', '5:43 PM', '', 65, 49, '⛅', 'Partly Cloudy'],
+            [5, 'Feb 22', 'Sun', '5:09 AM', '5:44 PM', '', 67, 50, '🌤', 'Mostly Sunny'],
+            [6, 'Feb 23', 'Mon', '5:08 AM', '5:45 PM', '', 68, 51, '☀️', 'Sunny'],
+            [7, 'Feb 24', 'Tue', '5:07 AM', '5:46 PM', '', 70, 52, '☀️', 'Sunny'],
+            [8, 'Feb 25', 'Wed', '5:05 AM', '5:47 PM', '', 71, 53, '🌤', 'Mostly Sunny'],
+            [9, 'Feb 26', 'Thu', '5:04 AM', '5:48 PM', '', 69, 52, '⛅', 'Partly Cloudy'],
+            [10, 'Feb 27', 'Fri', '5:02 AM', '5:49 PM', '', 67, 51, '🌧', 'Light Rain'],
+            [11, 'Feb 28', 'Sat', '5:01 AM', '5:50 PM', '', 65, 50, '🌧', 'Rainy'],
+            [12, 'Mar 1', 'Sun', '4:59 AM', '5:51 PM', '', 66, 50, '⛅', 'Partly Cloudy'],
+            [13, 'Mar 2', 'Mon', '4:58 AM', '5:52 PM', '', 68, 51, '🌤', 'Mostly Sunny'],
+            [14, 'Mar 3', 'Tue', '4:56 AM', '5:53 PM', '', 70, 52, '☀️', 'Sunny'],
+            [15, 'Mar 4', 'Wed', '4:55 AM', '5:54 PM', '', 71, 53, '☀️', 'Sunny'],
+            [16, 'Mar 5', 'Thu', '4:53 AM', '5:55 PM', '', 72, 54, '🌤', 'Mostly Sunny'],
+            [17, 'Mar 6', 'Fri', '4:51 AM', '5:56 PM', '', 70, 53, '⛅', 'Partly Cloudy'],
+            [18, 'Mar 7', 'Sat', '4:50 AM', '5:57 PM', '', 68, 52, '🌧', 'Showers'],
+            [19, 'Mar 8', 'Sun', '4:48 AM', '5:58 PM', '', 67, 51, '⛅', 'Partly Cloudy'],
+            [20, 'Mar 9', 'Mon', '4:46 AM', '5:59 PM', '', 69, 52, '🌤', 'Mostly Sunny'],
+            [21, 'Mar 10', 'Tue', '4:45 AM', '6:00 PM', '⭐ Odd Night', 71, 53, '☀️', 'Sunny'],
+            [22, 'Mar 11', 'Wed', '4:43 AM', '6:01 PM', '', 72, 54, '☀️', 'Sunny'],
+            [23, 'Mar 12', 'Thu', '4:41 AM', '6:02 PM', '⭐ Odd Night', 73, 55, '🌤', 'Mostly Sunny'],
+            [24, 'Mar 13', 'Fri', '4:39 AM', '6:03 PM', '', 71, 54, '⛅', 'Partly Cloudy'],
+            [25, 'Mar 14', 'Sat', '4:38 AM', '6:04 PM', '⭐ Odd Night', 70, 53, '🌤', 'Mostly Sunny'],
+            [26, 'Mar 15', 'Sun', '4:36 AM', '6:05 PM', '', 72, 54, '☀️', 'Sunny'],
+            [27, 'Mar 16', 'Mon', '4:34 AM', '6:06 PM', '✨ Laylat al-Qadr', 73, 55, '☀️', 'Sunny'],
+            [28, 'Mar 17', 'Tue', '4:32 AM', '6:07 PM', '', 74, 56, '🌤', 'Mostly Sunny'],
+            [29, 'Mar 18', 'Wed', '4:31 AM', '6:08 PM', '', 73, 55, '☀️', 'Sunny'],
+            [30, 'Mar 19', 'Thu', '4:29 AM', '6:09 PM', '🎉 Last Day', 72, 54, '☀️', 'Sunny'],
+        ];
+
+        const weekends = ['Fri', 'Sat', 'Sun'];
+        const tbody = document.getElementById('timetable-body');
+        const today = new Date();
+        const ramStart = new Date(2026, 1, 18);
+        const todayIdx = Math.floor((today - ramStart) / (864e5));
+        const inRamadan = todayIdx >= 0 && todayIdx < 30;
+
+        // Today cards
+        if (inRamadan) {
+            const td = data[todayIdx];
+            document.getElementById('today-fajr').textContent = td[3];
+            document.getElementById('today-iftar').textContent = td[4];
+            document.getElementById('today-day').textContent = td[0];
+            document.getElementById('today-day2').textContent = td[0];
+        } else {
+            document.getElementById('today-fajr').textContent = 'See table';
+            document.getElementById('today-iftar').textContent = 'See table';
+        }
+
+        // Build table (only Fajr + Iftar)
+        data.forEach(([day, date, wd, fajr, iftar, special, , , ,], i) => {
+            const isWeekend = weekends.includes(wd);
+            const isSpecial = special !== '';
+            const isToday = i === todayIdx;
+            const tr = document.createElement('tr');
+            if (isToday) tr.classList.add('today-row');
+            else if (isSpecial) tr.classList.add('special');
+            else if (isWeekend) tr.classList.add('weekend');
+            tr.innerHTML = `
+    <td><div class="day-info">
+      <span class="day-num">${day}</span>
+      <div>
+        <div class="day-date">${date}</div>
+        <div class="day-wd">${wd}</div>
+        ${special ? `<span class="special-badge">${special}</span>` : ''}
+      </div>
+    </div></td>
+    <td><span class="time-pill pf">${fajr}</span></td>
+    <td><span class="time-pill pi">${iftar}</span></td>`;
+            tbody.appendChild(tr);
+        });
+
+        if (inRamadan) {
+            setTimeout(() => {
+                const rows = tbody.querySelectorAll('tr');
+                if (rows[todayIdx]) rows[todayIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 700);
+        }
+
+        // ===== REAL-TIME WEATHER via Geolocation + Open-Meteo (free, no API key) =====
+        // WMO weather code → emoji + description
+        function wmoToWeather(code) {
+            if (code === 0) return ['☀️', 'Clear'];
+            if (code <= 2) return ['🌤', 'Partly Cloudy'];
+            if (code <= 3) return ['☁️', 'Overcast'];
+            if (code <= 48) return ['🌫', 'Foggy'];
+            if (code <= 57) return ['🌦', 'Drizzle'];
+            if (code <= 67) return ['🌧', 'Rainy'];
+            if (code <= 77) return ['🌨', 'Snowy'];
+            if (code <= 82) return ['🌧', 'Showers'];
+            if (code <= 99) return ['⛈', 'Thunderstorm'];
+            return ['🌤', '—'];
+        }
+
+        function cToF(c) { return Math.round(c * 9 / 5 + 32) }
+
+        async function fetchWeather(lat, lon, cityName) {
+            try {
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode&temperature_unit=fahrenheit&timezone=auto`;
+                const res = await fetch(url);
+                const d = await res.json();
+                const temp = Math.round(d.current.temperature_2m);
+                const [icon, desc] = wmoToWeather(d.current.weathercode);
+                document.getElementById('today-w-icon').textContent = icon;
+                document.getElementById('today-w-temp').textContent = temp + '°F';
+                document.getElementById('today-w-city').textContent = cityName || 'Your Location';
+            } catch (e) {
+                // Fallback to hardcoded LA data if network fails
+                if (inRamadan) {
+                    const td = data[todayIdx];
+                    document.getElementById('today-w-icon').textContent = td[8];
+                    document.getElementById('today-w-temp').textContent = td[6] + '°/' + td[7] + '°F';
+                    document.getElementById('today-w-city').textContent = 'Los Angeles, CA';
+                } else {
+                    document.getElementById('today-w-temp').textContent = 'N/A';
+                    document.getElementById('today-w-city').textContent = 'Los Angeles, CA';
+                }
+            }
+        }
+
+        async function reverseGeocode(lat, lon) {
+            try {
+                const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
+                const d = await res.json();
+                return d.address?.city || d.address?.town || d.address?.village || d.address?.county || 'Your Location';
+            } catch { return 'Your Location'; }
+        }
+
+        // Request geolocation
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                async (pos) => {
+                    const { latitude: lat, longitude: lon } = pos.coords;
+                    const city = await reverseGeocode(lat, lon);
+                    await fetchWeather(lat, lon, city);
+                },
+                () => {
+                    // Permission denied — use LA fallback
+                    fetchWeather(34.0522, -118.2437, 'Los Angeles, CA');
+                },
+                { timeout: 8000, maximumAge: 300000 }
+            );
+        } else {
+            fetchWeather(34.0522, -118.2437, 'Los Angeles, CA');
+        }
+    </script>
+</body>
+
+</html>
